@@ -2,10 +2,10 @@
     z-index: 0;
     position: fixed;
     inset: 0;
-    background-image: url('/assets/gb-reading-night_80.webp');
+    background-image: url('assets/gb-reading-night_80.webp');
 
     @media (prefers-color-scheme: light) {
-        background-image: url('/assets/gb-reading_80.webp');
+        background-image: url('assets/gb-reading_80.webp');
     }
 
     background-size: cover;

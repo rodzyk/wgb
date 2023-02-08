@@ -81,5 +81,5 @@ export class EpisodeService {
     return episodes.find((v: Episode) => v.status === 'released')
   }
 
-  get(): Observable<Episode[]> { return this.http.get<Episode[]>('/assets/gb-zn.json') }
+  get(): Observable<Episode[]> { return this.http.get<Episode[]>('assets/gb-zn.json') }
 }
