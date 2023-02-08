@@ -1,0 +1,46 @@
+:host {
+    display: block;
+    position: relative;
+    z-index: 100;
+
+    padding: 4rem;
+
+    @media (max-width: 800px) {
+        padding: 3rem;
+    }
+
+    @media (max-width: 480px) {
+        padding: 2rem;
+    }
+
+
+    &::before {
+        content: '';
+        border-radius: inherit;
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        filter: url("#worn") url("#roughpaper");
+
+        --grad-c0: #3F4159; // #745b44;
+        --grad-c1: #111426; // #4C2E13
+        --grad-c2: #212E40; // #4C2E13
+
+        background-color: var(--grad-c2);
+        background:
+            radial-gradient(farthest-corner, var(--grad-c0), transparent),
+            radial-gradient(ellipse at 40% 70%, var(--grad-c0), transparent 30%),
+            radial-gradient(ellipse at 40% 30%, var(--grad-c0), transparent 20%),
+            radial-gradient(ellipse at 60% 60%, var(--grad-c0), transparent 40%),
+            radial-gradient(ellipse at 70% 30%, var(--grad-c0), transparent 30%),
+            var(--grad-c2);
+
+        @media (prefers-color-scheme: light) {
+            --grad-c0: #FDE1A0;
+            --grad-c1: #AB8836;
+            --grad-c2: #D5B466;
+        }
+
+        z-index: -1;
+    }
+}

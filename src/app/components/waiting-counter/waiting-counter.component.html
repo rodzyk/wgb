@@ -1,0 +1,12 @@
+<div class="countdown countdown--one" *ngIf="countOfTime && countOfTime!.days  > 80">
+    <div class="time gb-light"><span class="num">{{countOfTime!.days}}+</span></div>
+    <div class="text">Days</div>
+</div>
+<div class="countdown countdown--three" *ngIf="countOfTime! && countOfTime!.days  > 80">
+    <div class="time gb-light"><span class="num">{{countOfTime!.hours | number: '2.0'}}</span></div>
+    <div class="time gb-light"><span class="num">{{countOfTime!.minutes | number: '2.0'}}</span></div>
+    <div class="time gb-light"><span class="num">{{countOfTime!.seconds | number: '2.0'}}</span></div>
+    <div class="text">Hours</div>
+    <div class="text">Min</div>
+    <div class="text">Sec</div>
+</div>

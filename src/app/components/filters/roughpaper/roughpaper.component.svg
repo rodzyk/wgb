@@ -1,0 +1,16 @@
+<svg class="hidden-svg">
+    <defs>
+        <filter id="roughpaper">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="1" seed="1"
+                stitchTiles="stitch"
+                result="turbulence" />
+            <feDiffuseLighting surfaceScale="1" diffuseConstant="0.75" lighting-color="#fff"
+                in="turbulence"
+                result="diffuseLighting">
+                <feDistantLight azimuth="45" elevation="50" />
+            </feDiffuseLighting>
+            <feComposite in="diffuseLighting" in2="SourceGraphic" operator="in" result="composite" />
+            <feBlend mode="multiply" in="SourceGraphic" in2="composite" result="blend" />
+        </filter>
+    </defs>
+</svg>

@@ -1,0 +1,38 @@
+.hero-background {
+    z-index: 0;
+    position: fixed;
+    inset: 0;
+    background-image: url('/assets/gb-reading-night_80.webp');
+
+    @media (prefers-color-scheme: light) {
+        background-image: url('/assets/gb-reading_80.webp');
+    }
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    @media screen and (orientation:portrait) {
+        background-position: 75% center;
+    }
+}
+
+.hero {
+    position: relative;
+    z-index: 1;
+    min-height: calc(100vh - 8rem);
+    width: 100%;
+    color: white;
+
+    padding: 1rem;
+    padding-bottom: 16rem;
+
+    display: grid;
+    place-content: center;
+    text-align: center;
+
+    .hero-inner {
+        display: grid;
+        place-content: center;
+    }
+}

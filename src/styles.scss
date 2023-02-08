@@ -1,1 +1,225 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
+
+:root {
+    --background-0: #010D00;
+    --shadow-color: 216deg 30% 2%;
+    color: white;
+
+    @media (prefers-color-scheme: light) {
+        --background-0: #CBBEB3;
+        --shadow-color: 210deg 11% 60%;
+        color: #010D00;
+    }
+
+    --shadow-elevation-low: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
+    0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.34),
+    1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.34);
+    --shadow-elevation-medium: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.29),
+    0.7px 1.3px 1.7px -0.6px hsl(var(--shadow-color) / 0.29),
+    1.3px 2.6px 3.3px -1.2px hsl(var(--shadow-color) / 0.29),
+    2.6px 5.2px 6.5px -1.9px hsl(var(--shadow-color) / 0.29),
+    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.29);
+    --shadow-elevation-high: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.27),
+    1.2px 2.4px 3px -0.3px hsl(var(--shadow-color) / 0.27),
+    2.1px 4.3px 5.4px -0.6px hsl(var(--shadow-color) / 0.27),
+    3.2px 6.5px 8.2px -0.8px hsl(var(--shadow-color) / 0.27),
+    4.7px 9.4px 11.8px -1.1px hsl(var(--shadow-color) / 0.27),
+    6.8px 13.6px 17.1px -1.4px hsl(var(--shadow-color) / 0.27),
+    9.6px 19.3px 24.3px -1.7px hsl(var(--shadow-color) / 0.27),
+    13.5px 27px 34px -1.9px hsl(var(--shadow-color) / 0.27),
+    18.5px 37.1px 46.6px -2.2px hsl(var(--shadow-color) / 0.27),
+    25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.27);
+}
+
+.gb-light {
+
+    text-align: center;
+    color: #FFF;
+    mix-blend-mode: plus-lighter;
+
+
+
+    // 
+    @media (prefers-color-scheme: dark) {
+        text-shadow:
+            0 -1px 4px #a0a,
+            0 -2px 10px #C636D9,
+            0 -10px 20px #9D1DF2,
+            0 -18px 40px #46268C;
+
+        transition: all .2s ease-in-out;
+        transform-origin: bottom;
+
+        &:hover {
+            cursor: none;
+            filter: url('#wavy-animate');
+            animation: gbfire 5s linear infinite;
+            animation-direction: alternate;
+            transform: scale(1.25);
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        // color: rgba(0, 0, 0, .6);
+        mix-blend-mode: overlay;
+        color: inherit;
+        text-shadow: 3px 2px 3px rgba(255, 255, 255, .2);
+    }
+}
+
+@keyframes gbfire {
+    0% {
+        text-shadow:
+            0 -1px 4px #a0a,
+            0 -2px 10px #C636D9,
+            0 -10px 20px #9D1DF2,
+            0 -18px 40px #46268C;
+    }
+
+    90% {
+        text-shadow:
+            0 -1px 4px #a0a,
+            0 -12px 10px #C636D9,
+            -10 -30px 20px #9D1DF2,
+            10 -48px 40px #46268C;
+    }
+
+    100% {
+        text-shadow:
+            0 -1px 4px #a0a,
+            0 -2px 10px #C636D9,
+            10 -10px 20px #9D1DF2,
+            -10 -18px 40px #46268C;
+    }
+}
+
+::selection {
+    background-color: hsla(0, 0%, 50%, 0.5);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    overflow: auto;
+    background: var(--background-0);
+}
+
+:root {
+    overflow: auto;
+}
+
+.hidden-svg {
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+///
+/// Typography
+/// 
+
+:root {
+    --base: 1.414;
+
+    @media (max-width: 480px) {
+        --base: 1.333;
+    }
+
+    --line-height-ratio: 1.3333;
+    --font-size: clamp(14px, 1vw, 18px);
+    --line-height: calc(1rem * var(--line-height-ratio));
+    // font-size: calc(var(--font-size) + 0.1vw);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    font-kerning: normal;
+    font-weight: 400;
+    --h0-size: calc(1rem * var(--base) * var(--base) * var(--base) * var(--base) * var(--base) * var(--base));
+    --h1-size: calc(1rem * var(--base) * var(--base) * var(--base) * var(--base) * var(--base));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    // opacity: 0.8;
+    display: block;
+    margin-top: calc(var(--line-height) * 3);
+    margin-bottom: var(--line-height);
+}
+
+h1+h2,
+h2+h3,
+h3+h4,
+h4+h5,
+h5+h6 {
+    margin-top: 0;
+}
+
+h1 {
+    font-size: var(--h1-size);
+}
+
+h2 {
+    font-size: calc(1rem * var(--base) * var(--base) * var(--base) * var(--base));
+}
+
+h3 {
+    font-size: calc(1rem * var(--base) * var(--base) * var(--base));
+}
+
+h4 {
+    font-size: calc(1rem * var(--base) * var(--base));
+}
+
+h5 {
+    font-size: calc(1rem * var(--base));
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: var(--line-height);
+    white-space: pre-wrap;
+}
+
+blockquote {
+    font-style: italic;
+    margin-top: calc(var(--line-height) * 3);
+    margin-bottom: calc(var(--line-height) * 3);
+    margin-right: 0;
+    margin-left: 38.2%;
+    opacity: 0.8;
+
+    p {
+        // margin-bottom: calc(var(--line-height) / 2);
+        margin-bottom: 0;
+        font-size: calc(1rem * var(--base));
+    }
+
+    footer {
+        font-style: normal;
+        text-align: right;
+        opacity: 0.8;
+    }
+}

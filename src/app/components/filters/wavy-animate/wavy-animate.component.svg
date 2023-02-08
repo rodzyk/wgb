@@ -1,0 +1,10 @@
+<svg class="hidden-svg">
+  <filter id="wavy-animate">
+    <feTurbulence baseFrequency="0.005 0.001" numOctaves="5" speed="1">
+      <animate attributeName="baseFrequency" dur="5s" values=" 0.001 0.005; 0.005 0.001; 0.001 0.005;"
+        repeatCount="indefinite" />
+    </feTurbulence>
+    <feDisplacementMap result="displacementMap" in="SourceGraphic" scale="30" />
+    <feComposite in="displacementMap" in2="SourceGraphic" operator="in" result="composite" />
+  </filter>
+</svg>

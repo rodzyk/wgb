@@ -1,0 +1,92 @@
+:host {
+    font-family: 'Comfortaa', cursive;
+    line-height: 1.5;
+}
+
+.wavy-top {
+    filter: url("#worn");
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    height: 64px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: - 32px;
+    border: 0;
+    background: var(--background-0);
+
+}
+
+.parchment-wrapper {
+    padding: 1rem;
+    position: relative;
+    background-color: inherit;
+    @media (max-width: 480px) {
+        padding: 1rem 0;
+    }
+}
+
+app-parchment {
+    margin: auto;
+    max-width: 800px;
+}
+
+.parchment-wrapper {
+    &:first-of-type {
+        app-parchment {
+            margin-top: -16rem;
+        }
+    }
+}
+
+.list {
+    display: grid;
+    gap: 8px;
+    margin-bottom: var(--line-height);
+}
+
+@media (horizontal-viewport-segments: 2) {
+    :host {
+        --segments-gap: calc(env(viewport-segment-left 1 0) - env(viewport-segment-right 0 0) + 0rem);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: var(--segments-gap);
+    }
+
+    app-hero {
+
+        ::ng-deep {
+            .hero {
+                position: fixed;
+                top: 0;
+                width: 50%;
+                padding-bottom: unset;
+                padding-right: 1rem;
+                min-height: 100dvh;
+            }
+
+            .hero-background {
+                width: calc(50% + var(--segments-gap));
+                width: 50%;
+                right: unset;
+                background-position: 80% top;
+            }
+        }
+
+    }
+
+    .wavy-top {
+        display: none;
+    }
+
+    .parchment-wrapper {
+        background-color: unset;
+
+        &:first-of-type {
+            app-parchment {
+                margin-top: unset;
+            }
+        }
+    }
+
+}

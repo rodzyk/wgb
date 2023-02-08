@@ -1,0 +1,17 @@
+<div *ngIf="episode" style="font-size: 1.2em;" [title]="'Chapter '+episode.chapter+' (Part '+episode.part+')'">
+    <span>{{episode.chapter | number:'2.0'}}</span><sub style="opacity: .64;"><small style="font-weight: bold;">{{episode.part}}</small></sub>
+</div>
+
+<div *ngIf="episode">
+    <div lang="zh-CN">{{episode.title}}</div>
+    <div style="opacity: .64;">
+        <time [attr.datetime]="episode.date | date:'full'">
+            <small style="font-weight: bold;">{{episode.date | date:'MMM d, ' }}</small>
+            <small style="font-weight: bold;">{{episode.date | date:'shortTime' }}</small>
+        </time>
+    </div>
+</div>
+
+<span *ngIf="episode" style="text-align: center;">{{episode.time.days | number}}<span *ngIf="episode.status=='waiting'">+ </span><small
+        style="opacity: .64; font-weight: bold;"> Days</small>
+    </span>

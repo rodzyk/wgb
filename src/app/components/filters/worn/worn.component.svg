@@ -1,0 +1,18 @@
+<svg class="hidden-svg">
+    <defs>
+        <filter [id]="id">
+            <feTurbulence type="turbulence" baseFrequency="0.02 0.02" numOctaves="5"
+                stitchTiles="stitch" result="turbulence" [attr.seed]="seed" />
+
+            <feDisplacementMap in="SourceGraphic" in2="turbulence" [attr.scale]="-1 * scale"
+                xChannelSelector="R"
+                yChannelSelector="G" result="displacementMap" />
+            <feDisplacementMap in="SourceGraphic" in2="turbulence" [attr.scale]="scale"
+                xChannelSelector="G"
+                yChannelSelector="B" result="displacementMap1" />
+            <feComposite in="displacementMap1" in2="displacementMap" operator="in"
+                result="composite" />
+            <feComposite in="SourceGraphic" in2="composite" operator="in" result="composite1" />
+        </filter>
+    </defs>
+</svg>

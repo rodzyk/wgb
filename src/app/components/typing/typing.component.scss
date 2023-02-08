@@ -1,0 +1,42 @@
+:host {
+    .typed-text {
+        font-weight: normal;
+        // color: #dd7732;
+    }
+
+    .cursor {
+        display: inline-block;
+        background-color: currentColor;
+        margin-left: 0.2rem;
+        width: 1px;
+        animation: blink 1s infinite;
+
+    }
+
+    &.typing .cursor {
+        animation: none;
+    }
+}
+
+
+@keyframes blink {
+    0% {
+        background-color: currentColor;
+    }
+
+    49% {
+        background-color: currentColor;
+    }
+
+    50% {
+        background-color: transparent;
+    }
+
+    99% {
+        background-color: transparent;
+    }
+
+    100% {
+        background-color: currentColor;
+    }
+}

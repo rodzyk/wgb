@@ -1,0 +1,8 @@
+<svg class="hidden-svg">
+    <filter id="grainy">
+        <feTurbulence type="fractalNoise" baseFrequency=".537"></feTurbulence>
+        <feColorMatrix type="saturate" values="0" ></feColorMatrix>
+        <feBlend in="SourceGraphic" mode="multiply" result="blend"></feBlend>
+        <feComposite in="blend" in2="SourceGraphic" operator="in" />
+    </filter>
+</svg>

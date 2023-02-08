@@ -1,0 +1,54 @@
+:host {
+    aspect-ratio: 1.618033988;
+    display: grid;
+    grid-template-columns: 382fr 618fr;
+    min-width: 20rem;
+    // border: 1px solid red;
+    margin: auto;
+
+    .countdown {
+        // border: 1px solid red;
+        width: 100%;
+        padding: 1rem;
+        gap: 2px;
+    }
+}
+
+.countdown {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: auto;
+
+    &--three {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    &--one {
+        grid-template-columns: 1fr;
+    }
+
+
+
+    .text {
+        opacity: .64;
+    }
+}
+
+.time {
+    font-size: var(--h1-size);
+    font-family: 'Ma Shan Zheng', cursive;
+    align-items: center;
+    display: flex;
+    line-height: 1;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    text-align: center;
+
+    .num {
+        text-combine-upright: all;
+        padding-top: -0.4rem;
+    }
+}
