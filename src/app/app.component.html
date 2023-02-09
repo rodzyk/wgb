@@ -11,7 +11,7 @@
     <h1 class="gb-light" style="font-family: 'Ma Shan Zheng', cursive;" lang="zh-CN">鬼刀</h1>
     <div class="list" *ngFor="let g of episode.episodesByYear">
       <h4 class="" style="text-align: center;">{{g.id}}</h4>
-      <app-episode-item *ngFor="let e of g.items" [episode]="e" />
+      <app-episode-item  *ngFor="let e of g.items" [ngClass]="{'even': e.chapter%2==0, 'odd': e.chapter%2!=0}" [episode]="e" />
     </div>
   </app-parchment>
 
@@ -23,7 +23,7 @@
 
 <footer style="background: inherit;overflow: auto; position: relative;">
   <div style="display: grid; place-content: center;">
-    <p>&copy;2023 <a href="http://reddit.com/WLOP" target="_blank" rel="noopener noreferrer">WLOP<sub>fans</sub></a></p>
+    <p>&copy;2023 <a href="http://reddit.com/r/WLOP" target="_blank" rel="noopener noreferrer">WLOP<sub>fans</sub></a></p>
   </div>
 </footer>
 

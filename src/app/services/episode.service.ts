@@ -40,7 +40,8 @@ export class EpisodeService {
         chapter: e.chapter,
         part: e.part,
         status: (date) ? 'released' : 'waiting',
-        time: (date && prevDate) ? this.dateCalc.calcDifferenceDate(date, prevDate) : {days: 0, hours: 0, minutes: 0, seconds:0, total: 0}
+        time: (date && prevDate) ? this.dateCalc.calcDifferenceDate(date, prevDate) : {days: 0, hours: 0, minutes: 0, seconds:0, total: 0},
+        extra: e.extra ?? false
       });
     });
 

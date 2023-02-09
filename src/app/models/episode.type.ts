@@ -5,7 +5,8 @@ export type Episode = {
     part: number,
     title: string,
     date: Date | null,
-    links: string[],
+    links: { weibo: string,mangaBilibili: string },
     time: CountOfTime,
-    status?: string
+    status?: string,
+    extra: boolean
 }

@@ -21,6 +21,7 @@
     padding: 1rem;
     position: relative;
     background-color: inherit;
+
     @media (max-width: 480px) {
         padding: 1rem 0;
     }
@@ -30,6 +31,8 @@ app-parchment {
     margin: auto;
     max-width: 800px;
 }
+
+
 
 .parchment-wrapper {
     &:first-of-type {
@@ -43,6 +46,13 @@ app-parchment {
     display: grid;
     gap: 8px;
     margin-bottom: var(--line-height);
+
+    app-episode-item.odd+app-episode-item.even {
+        margin-top: 1rem;
+    }
+    app-episode-item.even+app-episode-item.odd {
+        margin-top: 1rem;
+    }
 }
 
 @media (horizontal-viewport-segments: 2) {

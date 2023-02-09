@@ -1,5 +1,11 @@
-<div *ngIf="episode" style="font-size: 1.2em;" [title]="'Chapter '+episode.chapter+' (Part '+episode.part+')'">
-    <span>{{episode.chapter | number:'2.0'}}</span><sub style="opacity: .64;"><small style="font-weight: bold;">{{episode.part}}</small></sub>
+<div class="chapter-number" *ngIf="episode" [title]="'Chapter '+episode.chapter+' (Part '+episode.part+')'">
+    <div>
+        <span class="chapter"><span class="num">{{episode.chapter | number:'2.0'}}</span></span>
+        <sub class="part">
+            <small><span class="num">{{episode.part}}</span></small>
+        </sub>
+    </div>
+    <span class="tag extra" *ngIf="episode.extra">Extra</span>
 </div>
 
 <div *ngIf="episode">
@@ -12,6 +18,17 @@
     </div>
 </div>
 
-<span *ngIf="episode" style="text-align: center;">{{episode.time.days | number}}<span *ngIf="episode.status=='waiting'">+ </span><small
-        style="opacity: .64; font-weight: bold;"> Days</small>
-    </span>
+<div class="links">
+    <a *ngIf="episode?.links?.mangaBilibili" title="Read on Bilibilib comics" [href]="episode?.links?.mangaBilibili"
+        target="_blank" rel="noopener noreferrer">
+        <img src="assets/bilibili-comic.jfif" alt="Bilibilib comics logo">
+    </a>
+    <a *ngIf="episode?.links?.weibo" title="View post on Weibo" [href]="episode?.links?.weibo" target="_blank"
+        rel="noopener noreferrer">
+        <img src="assets/icon-weibo.svg" alt="Weibo logo">
+    </a>
+</div>
+
+<span *ngIf="episode" style="text-align: center;">{{episode.time.days | number}}<span
+        *ngIf="episode.status=='waiting'">+ </span><small style="opacity: .64; font-weight: bold;"> Days</small>
+</span>
