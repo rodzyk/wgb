@@ -20,7 +20,7 @@
         position: absolute;
         inset: 0;
         pointer-events: none;
-        filter: url("#worn") url("#roughpaper");
+        filter: var(--filters);
 
         --grad-c0: #3F4159; // #745b44;
         --grad-c1: #111426; // #4C2E13

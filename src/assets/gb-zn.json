@@ -50,6 +50,16 @@
         }
     },
     {
+        "date": "2021-03-05T07:01:00.000+03:00",
+        "title": "小绿",
+        "chapter": 7,
+        "part": 0,
+        "links": {
+            "weibo": "",
+            "mangaBilibili": "https://manga.bilibili.com/mc29481/559610"
+        }
+    },
+    {
         "date": "2021-02-03T16:45:00.000+03:00",
         "title": "尘埃（一）",
         "chapter": 11,
@@ -283,13 +293,13 @@
     },
     {
         "date": "2015-06-13T15:07:00.000+08:00",
-        "title": "诺拉大陆刀剑榜",
+        "title": "武器榜",
         "chapter": 5.5,
         "part": 0,
         "extra": true,
         "links": {
             "weibo": "",
-            "mangaBilibili": ""
+            "mangaBilibili": "https://manga.bilibili.com/mc29481/553363"
         }
     },
     {
@@ -378,6 +388,17 @@
         "links": {
             "weibo": "https://weibo.com/1804342520/BxIgzyXJM",
             "mangaBilibili": "https://manga.bilibili.com/mc29481/553313"
+        }
+    },
+    {
+        "date": "2014-10-22T00:00:00.000+03:00",
+        "title": "六极",
+        "chapter": 3.5,
+        "part": 0,
+        "extra": true,
+        "links": {
+            "weibo": "",
+            "mangaBilibili": "https://manga.bilibili.com/mc29481/553312"
         }
     },
     {

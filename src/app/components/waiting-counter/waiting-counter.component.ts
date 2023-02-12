@@ -7,5 +7,5 @@ import { CountOfTime } from 'src/app/models';
   styleUrls: ['./waiting-counter.component.scss']
 })
 export class WaitingCounterComponent {
-  @Input() countOfTime: CountOfTime = { days: 0, hours: 0, minutes: 0, seconds: 0, total: 0 }
+  @Input() countOfTime: CountOfTime = new CountOfTime()
 }

@@ -2,28 +2,43 @@
   <app-typing [typingDelay]="64" [erasingDelay]="16" [staticText]="typing.prefix" [textArray]="typing.list" />
   <app-waiting-counter *ngIf="calcWait.waiting?.time && calcWait.waiting?.time!.days  > 80"
     [countOfTime]="calcWait.waiting!.time"></app-waiting-counter>
+  <p style="font-style: italic; opacity: .8;">The longest waiting time: <b>{{calcWait.longestWaiting.days}}</b> days.
+    <br>Average waiting time: <b>{{calcWait.avarage.days}}</b> days.
+  </p>
 </app-hero>
 
 <div class="parchment-wrapper">
   <hr class="wavy-top">
 
-  <app-parchment>
+  <app-parchment [worn]="fx.isWorn" [roughpaper]="fx.isRoughpaper">
     <h1 class="gb-light" style="font-family: 'Ma Shan Zheng', cursive;" lang="zh-CN">鬼刀</h1>
     <div class="list" *ngFor="let g of episode.episodesByYear">
       <h4 class="" style="text-align: center;">{{g.id}}</h4>
-      <app-episode-item  *ngFor="let e of g.items" [ngClass]="{'even': e.chapter%2==0, 'odd': e.chapter%2!=0}" [episode]="e" />
+      <app-episode-item *ngFor="let e of g.items" [ngClass]="{'even': e.chapter%2==0, 'odd': e.chapter%2!=0}"
+        [episode]="e" />
     </div>
   </app-parchment>
 
 </div>
 
-<div class="parchment-wrapper">
-  <app-parchment><app-logo /></app-parchment>
-</div>
-
-<footer style="background: inherit;overflow: auto; position: relative;">
-  <div style="display: grid; place-content: center;">
-    <p>&copy;2023 <a href="http://reddit.com/r/WLOP" target="_blank" rel="noopener noreferrer">WLOP<sub>fans</sub></a></p>
+<footer>
+  <div class="parchment-wrapper">
+    <app-parchment [worn]="fx.isWorn" [roughpaper]="fx.isRoughpaper">
+      <app-logo />
+      <p>The app is designed to help readers track the days in between chapters of their favorite comic.</p>
+      <div class="fx-form">
+        <label for="isRoughpaper">Roughpaper FX</label>
+        <input type="checkbox" id="isRoughpaper" [(ngModel)]="fx.isRoughpaper">
+        <label for="isWorn">Worn FX</label>
+        <input type="checkbox" id="isWorn" [(ngModel)]="fx.isWorn">
+      </div>
+    </app-parchment>
+  </div>
+  <div style="display: grid; place-content: center; text-align: center;">
+    <p>Art and Story by WLOP. Support him on <a href="http://patreon.com/wlop" target="_blank" rel="noopener noreferrer">Patreon.</a></p>
+    <p>App created by Rodzyk. Treat him a <a href="https://ko-fi.com/rodzyk" target="_blank" rel="noopener noreferrer">Coffee.</a></p>
+    <p><copy-year [since]="2023" /><span>&nbsp;</span><app-version [appName]="'Waiting for Ghostblade'" [v]="'1.0.0'"/><span>,&nbsp;</span><a href="http://reddit.com/r/WLOP" target="_blank"
+        rel="noopener noreferrer">WLOP<sub>fans</sub></a></p>
   </div>
 </footer>
 

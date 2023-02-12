@@ -3,6 +3,18 @@
     line-height: 1.5;
 }
 
+footer {
+    background: inherit;
+    overflow: auto;
+    position: relative;
+    z-index: 100;
+}
+
+.fx-form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
 .wavy-top {
     filter: url("#worn");
     clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
@@ -34,10 +46,10 @@ app-parchment {
 
 
 
-.parchment-wrapper {
+:host>.parchment-wrapper {
     &:first-of-type {
         app-parchment {
-            margin-top: -16rem;
+            margin-top: -15rem;
         }
     }
 }
@@ -50,6 +62,7 @@ app-parchment {
     app-episode-item.odd+app-episode-item.even {
         margin-top: 1rem;
     }
+
     app-episode-item.even+app-episode-item.odd {
         margin-top: 1rem;
     }
@@ -89,7 +102,7 @@ app-parchment {
         display: none;
     }
 
-    .parchment-wrapper {
+    :host>.parchment-wrapper {
         background-color: unset;
 
         &:first-of-type {
@@ -97,6 +110,10 @@ app-parchment {
                 margin-top: unset;
             }
         }
+    }
+
+    footer {
+        grid-column: 2;
     }
 
 }

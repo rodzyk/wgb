@@ -15,6 +15,9 @@ import { DataSetComponent } from './components/data-set/data-set.component';
 import { WaitingCounterComponent } from './components/waiting-counter/waiting-counter.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { CopyYearComponent } from './components/copy-year/copy-year.component';
+import { FormsModule } from '@angular/forms';
+import { VersionComponent } from './components/version/version.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +32,13 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     WavyAnimateComponent,
     DataSetComponent,
     WaitingCounterComponent,
-    LogoComponent
+    LogoComponent,
+    CopyYearComponent,
+    VersionComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

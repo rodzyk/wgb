@@ -29,6 +29,6 @@
     </a>
 </div>
 
-<span *ngIf="episode" style="text-align: center;">{{episode.time.days | number}}<span
+<span *ngIf="episode" style="text-align: center;" [title]="episode.time">{{episode.time.days | number}}<span
         *ngIf="episode.status=='waiting'">+ </span><small style="opacity: .64; font-weight: bold;"> Days</small>
 </span>

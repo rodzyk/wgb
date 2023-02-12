@@ -1,13 +1,18 @@
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-typing',
   templateUrl: './typing.component.html',
-  styleUrls: ['./typing.component.scss']
+  styleUrls: ['./typing.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TypingComponent implements OnInit {
-  ngOnInit(): void {
-    this.type()
+  async ngOnInit() {
+    this.typedText = this.textArray[0];
+    for (let i = 1; i < this.textArray.length; i++) {
+      const str = this.textArray[i];
+      await this.typeAndEraceString(str)
+    }
   }
 
   @Input() staticText: string = "";
@@ -15,48 +20,39 @@ export class TypingComponent implements OnInit {
 
   @Input() typingDelay = 200;
   @Input() erasingDelay = 100;
-  @Input() newTextDelay = 2000; // Delay between current and next text
+  @Input() newTextDelay = 2000;
 
   public typedText: string = "";
-  private _textArrayIndex = 0;
-  private _charIndex = 0;
 
   @HostBinding('class.typing') typingClass = false;
 
-  type() {
-    if (!this.textArray) return;
+  constructor(private cd: ChangeDetectorRef) { }
 
-    if (this._charIndex < this.textArray[this._textArrayIndex].length) {
+  sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-      if (!this.typingClass) this.typingClass = true;
-
-      this.typedText += this.textArray[this._textArrayIndex].charAt(this._charIndex);
-      this._charIndex++;
-
-      setTimeout(() => { this.type() }, this.typingDelay);
-    }
-    else {
-      this.typingClass = false;
-      setTimeout(() => { this.erase() }, this.newTextDelay);
-    }
+  async typeLetter(letter: string) {
+    this.typedText += letter;
+    this.cd.detectChanges();
+    await this.sleep(this.typingDelay)
   }
 
-  erase() {
-    if (this._charIndex > 0) {
+  async eraseOne() {
+    this.typedText = this.typedText.slice(0, -1);
+    this.cd.detectChanges();
+    await this.sleep(this.erasingDelay)
+  }
 
-      if (!this.typingClass) this.typingClass = true;
+  async typeAndEraceString(str: string) {
+    await this.sleep(this.newTextDelay);
 
-      this.typedText = this.textArray[this._textArrayIndex].substring(0, this._charIndex - 1);
-
-      this._charIndex--;
-
-      setTimeout(() => { this.erase() }, this.erasingDelay);
+    while (this.typedText.length > 0) {
+      await this.eraseOne();
     }
-    else {
-      this.typingClass = false;
-      this._textArrayIndex++;
-      if (this._textArrayIndex >= this.textArray.length) this._textArrayIndex = 0;
-      setTimeout(() => { this.type() }, this.typingDelay);
+
+    const array = Array.from(str);
+    for (let i = 0; i < array.length; i++) {
+      const ch = array[i];
+      await this.typeLetter(ch);
     }
   }
 }

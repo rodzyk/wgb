@@ -1,12 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Episode } from '../models';
+import { CountOfTime, Episode } from '../models';
 import { DateCaclService } from './date-cacl.service';
 
 type EpisodeGroup = {
   id: number | string | null,
   items: Episode[]
+}
+
+type Avarage = {
+  total: number,
+  count: number
 }
 
 @Injectable({
@@ -40,7 +45,7 @@ export class EpisodeService {
         chapter: e.chapter,
         part: e.part,
         status: (date) ? 'released' : 'waiting',
-        time: (date && prevDate) ? this.dateCalc.calcDifferenceDate(date, prevDate) : {days: 0, hours: 0, minutes: 0, seconds:0, total: 0},
+        time: (date && prevDate) ? this.dateCalc.calcDifferenceDate(date, prevDate) : new CountOfTime(),
         extra: e.extra ?? false
       });
     });
@@ -71,13 +76,25 @@ export class EpisodeService {
     })
   }
 
+  averageAllTime(episodes: Episode[]): CountOfTime {
+    const averageTotalTime = episodes.reduce(
+      (t: Avarage, n: Episode) => {
+        return (n.time.total > 0) ? { total: t.total + n.time.total, count: t.count + 1 } : t
+      }, { total: 0, count: 0 })
+
+    return new CountOfTime(averageTotalTime.total / averageTotalTime.count);
+  }
+
+  maxTime(episodes: Episode[]): CountOfTime {
+    const max = episodes.reduce((total, next: Episode) => next.time.total > total ? next.time.total : total, 0);
+    return new CountOfTime(max)
+  }
+
   getPlanned(episodes: Episode[]) {
     return episodes.find((v: Episode) => v.status === 'waiting')
   }
 
   getLastReleased(episodes: Episode[]) {
-
-    // const released: Episode[] = episodes.filter(v=> v.status === 'released')
 
     return episodes.find((v: Episode) => v.status === 'released')
   }

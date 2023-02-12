@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Episode } from '../models';
+import { CountOfTime, Episode } from '../models';
 import { TickTack } from '../models/tick-tack';
 import { DateCaclService } from './date-cacl.service';
 import { EpisodeService } from './episode.service';
@@ -13,9 +13,14 @@ export class CalcWaitingService {
   released: Episode | undefined = undefined;
   waiting: Episode | undefined = undefined;
 
+  avarage: CountOfTime = new CountOfTime();
+  longestWaiting: CountOfTime = new CountOfTime();
+
   constructor(public episode: EpisodeService, private dateCalc: DateCaclService) { }
 
   init(list: Episode[]) {
+    this.avarage = this.episode.averageAllTime(list);
+    this.longestWaiting = this.episode.maxTime(list);
     this.released = this.episode.getLastReleased(list);
     this.waiting = this.episode.getPlanned(list);
 
