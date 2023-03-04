@@ -16,7 +16,7 @@ export class CountOfTime {
     }
 
     toString(): string {
-        return `${this.days} days, ${this.days} days, ${this.minutes} minutes, ${this.seconds} seconds`
+        return `${this.days} days, ${this.hours} hours, ${this.minutes} minutes, ${this.seconds} seconds`
     }
 
     valueOf(): number {

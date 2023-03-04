@@ -1,9 +1,21 @@
 <app-hero>
-  <app-typing [typingDelay]="64" [erasingDelay]="16" [staticText]="typing.prefix" [textArray]="typing.list" />
-  <app-waiting-counter *ngIf="calcWait.waiting?.time && calcWait.waiting?.time!.days  > 80"
-    [countOfTime]="calcWait.waiting!.time"></app-waiting-counter>
-  <p style="font-style: italic; opacity: .8;">The longest waiting time: <b>{{calcWait.longestWaiting.days}}</b> days.
-    <br>Average waiting time: <b>{{calcWait.avarage.days}}</b> days.
+  <ng-container
+    *ngIf="calcWait.waiting?.time && calcWait.waiting?.time!.days  >= calcWait.avarage.days; else chapterHere">
+    <app-typing [typingDelay]="64" [erasingDelay]="16" [staticText]="typing.prefix" [textArray]="typing.list" />
+    <app-waiting-counter [countOfTime]="calcWait.waiting!.time"></app-waiting-counter>
+  </ng-container>
+  <ng-template #chapterHere>
+    <h3>The new chapter is here!</h3>
+    <div class="parchment-wrapper">
+      <app-parchment [worn]="fx.isWorn" [roughpaper]="fx.isRoughpaper">
+        <app-episode-item style="font-size: 1.5rem; text-align: left;  color: var(--base-text-color);" [isNew]="calcWait.waiting?.time!.days  < calcWait.avarage.days/2" [episode]="calcWait.released??null" />
+        <p *ngIf="calcWait.waiting?.time && calcWait.waiting?.time!.days  >= calcWait.avarage.days/2">Waiting next for the next chapter for {{calcWait.waiting?.time}}</p>
+      </app-parchment>
+    </div>
+  </ng-template>
+  
+  <p style="font-style: italic; opacity: .8;">The longest waiting time: <b [title]="calcWait.longestWaiting">{{calcWait.longestWaiting.days}}</b> days.
+    <br>Average waiting time: <b [title]="calcWait.avarage">{{calcWait.avarage.days}}</b> days.
   </p>
 </app-hero>
 
@@ -35,9 +47,12 @@
     </app-parchment>
   </div>
   <div style="display: grid; place-content: center; text-align: center;">
-    <p>Art and Story by WLOP. Support him on <a href="http://patreon.com/wlop" target="_blank" rel="noopener noreferrer">Patreon.</a></p>
-    <p>App created by Rodzyk. Treat him a <a href="https://ko-fi.com/rodzyk" target="_blank" rel="noopener noreferrer">Coffee.</a></p>
-    <p><copy-year [since]="2023" /><span>&nbsp;</span><app-version [appName]="'Waiting for Ghostblade'" [v]="'1.0.0'"/><span>,&nbsp;</span><a href="http://reddit.com/r/WLOP" target="_blank"
+    <p>Art and Story by WLOP. Support him on <a href="http://patreon.com/wlop" target="_blank"
+        rel="noopener noreferrer">Patreon.</a></p>
+    <p>App created by Rodzyk. Treat him a <a href="https://ko-fi.com/rodzyk" target="_blank"
+        rel="noopener noreferrer">Coffee.</a></p>
+    <p><copy-year [since]="2023" /><span>&nbsp;</span><app-version [appName]="'Waiting for Ghostblade'"
+        [v]="'1.0.0'" /><span>,&nbsp;</span><a href="http://reddit.com/r/WLOP" target="_blank"
         rel="noopener noreferrer">WLOP<sub>fans</sub></a></p>
   </div>
 </footer>

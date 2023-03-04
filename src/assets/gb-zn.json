@@ -1,12 +1,22 @@
 [
     {
         "date": null,
+        "title": "至强对至强（一）",
+        "chapter": 13,
+        "part": 1,
+        "links": {
+            "weibo": "",
+            "mangaBilibili": ""
+        }
+    },
+    {
+        "date": "2023-03-03T17:32:00.000+03:00",
         "title": "无光之夜（三）",
         "chapter": 12,
         "part": 3,
         "links": {
             "weibo": "",
-            "mangaBilibili": ""
+            "mangaBilibili": "https://manga.bilibili.com/detail/mc29481"
         }
     },
     {

@@ -11,6 +11,7 @@ export class EpisodeItemComponent {
   private readonly interval = 30000; // 30 sec
   
   @Input() episode: Episode | null = null;
+  @Input() isNew: boolean = false;
 
   constructor(private ref: ChangeDetectorRef) {
     setInterval(() => {

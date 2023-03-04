@@ -4,12 +4,13 @@
 :root {
     --background-0: #010D00;
     --shadow-color: 216deg 30% 2%;
-    color: white;
+    --base-text-color:white;
+    color: var(--base-text-color);
 
     @media (prefers-color-scheme: light) {
         --background-0: #CBBEB3;
         --shadow-color: 210deg 11% 60%;
-        color: #010D00;
+        --base-text-color:#010D00;
     }
 
     --shadow-elevation-low: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
