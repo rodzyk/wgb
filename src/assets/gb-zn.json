@@ -16,7 +16,8 @@
         "part": 3,
         "links": {
             "weibo": "",
-            "mangaBilibili": "https://manga.bilibili.com/detail/mc29481"
+            "mangaBilibili": "https://manga.bilibili.com/mc29481/1102392",
+            "liveBilibili": "https://www.bilibili.com/video/BV1VL411f7Ho/"
         }
     },
     {
@@ -26,7 +27,8 @@
         "part": 2,
         "links": {
             "weibo": "https://weibo.com/1804342520/M4MEZcGfM",
-            "mangaBilibili": "https://manga.bilibili.com/mc29481/908741"
+            "mangaBilibili": "https://manga.bilibili.com/mc29481/908741",
+            "liveBilibili": "https://www.bilibili.com/video/BV1Ee4y1C7zW/"
         }
     },
     {
@@ -36,7 +38,8 @@
         "part": 1,
         "links": {
             "weibo": "https://weibo.com/1804342520/Lp00S5FFd",
-            "mangaBilibili": "https://manga.bilibili.com/mc29481/752899"
+            "mangaBilibili": "https://manga.bilibili.com/mc29481/752899",
+            "liveBilibili": "https://www.bilibili.com/video/BV1yR4y1N7Bx/"
         }
     },
     {
