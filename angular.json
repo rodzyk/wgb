@@ -48,7 +48,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "google5f1b342a1f65ce39.html",
+              "src/google5f1b342a1f65ce39.html",
               "src/faq.schemaorg.json",
               "src/favicon.ico",
               "src/assets",
