@@ -1,12 +1,22 @@
 [
     {
         "date": null,
+        "title": "至强对至强（二）",
+        "chapter": 13,
+        "part": 2,
+        "links": {
+            "weibo": "",
+            "mangaBilibili": ""
+        }
+    },
+    {
+        "date": null,
         "title": "至强对至强（一）",
         "chapter": 13,
         "part": 1,
         "links": {
             "weibo": "",
-            "mangaBilibili": ""
+            "mangaBilibili": "https://manga.bilibili.com/mc29481/1310001"
         }
     },
     {
