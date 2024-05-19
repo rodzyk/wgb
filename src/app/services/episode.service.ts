@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { CountOfTime, Episode } from '../models';
 import { DateCaclService } from './date-cacl.service';
 
+const ZN_EPISODES_LINK = `https://gist.githubusercontent.com/rodzyk/20d46049d685eb0d6f84ea521205c0c5/raw/1bb0b086bc05515c9fd10eb06aae9c8669853498/gb-zn.json`;
+
 type EpisodeGroup = {
   id: number | string | null,
   items: Episode[]
@@ -99,5 +101,5 @@ export class EpisodeService {
     return episodes.find((v: Episode) => v.status === 'released')
   }
 
-  get(): Observable<Episode[]> { return this.http.get<Episode[]>('assets/gb-zn.json') }
+  get(): Observable<Episode[]> { return this.http.get<Episode[]>(ZN_EPISODES_LINK) }
 }
